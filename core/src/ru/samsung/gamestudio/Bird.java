@@ -22,7 +22,7 @@ public class Bird {
             new Texture("birdTiles/bird1.png"),
             new Texture("birdTiles/bird2.png"),
             new Texture("birdTiles/bird1.png"),
-    };
+        };
     }
 
     public void fly() {

@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class ScreenGame implements Screen {
-
     MyGdxGame myGdxGame;
     Bird bird=new Bird(0,0,5,250,200);
     ScreenGame(MyGdxGame myGdxGame) {
