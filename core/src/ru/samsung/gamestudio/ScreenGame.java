@@ -1,5 +1,6 @@
 package ru.samsung.gamestudio;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -7,56 +8,44 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class ScreenGame implements Screen {
 
     MyGdxGame myGdxGame;
-    Texture birdTexture;
-    int birdX=0,birdY=0,birdSpeed=5;
-
+    Bird bird=new Bird(0,0,5,250,200);
     ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame=myGdxGame;
-        birdTexture=new Texture("bird0.png");
     }
 
     @Override
-    public void show() {
-
-    }
+    public void show() {}
 
     @Override
     public void render(float delta) {
-        birdX += birdSpeed;
-        birdY += birdSpeed;
-
-		ScreenUtils.clear(1, 0, 0, 1);
+        if (Gdx.input.justTouched()) {
+            bird.onClick();
+        }
+        bird.fly();
+        ScreenUtils.clear(1, 0, 0, 1);
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 		myGdxGame.batch.begin();
 
-        myGdxGame.batch.draw(birdTexture, birdX, birdY);
+        bird.draw(myGdxGame.batch);
 
 		myGdxGame.batch.end();
     }
 
     @Override
-    public void resize(int width, int height) {
-
-    }
+    public void resize(int width, int height) {}
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() {}
 
     @Override
-    public void resume() {
-
-    }
+    public void resume() {}
 
     @Override
-    public void hide() {
-
-    }
+    public void hide() {}
 
     @Override
     public void dispose() {
-        birdTexture.dispose();
+        bird.dispose();
     }
 }

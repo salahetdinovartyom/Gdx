@@ -10,9 +10,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MyGdxGame extends Game {
 	SpriteBatch batch;
-    public  static final int SCR_WIDTH = 1280,SCR_HEIGHT = 720;
+    public static final int SCR_WIDTH = 1280,SCR_HEIGHT = 720;
     public OrthographicCamera camera;
-//    Texture birdTexture;
     ScreenGame screenGame;
 
     @Override
@@ -27,7 +26,6 @@ public class MyGdxGame extends Game {
 	@Override
 	public void dispose () {
 		batch.dispose();
-//        birdTexture.dispose();
 	}
 }
 
