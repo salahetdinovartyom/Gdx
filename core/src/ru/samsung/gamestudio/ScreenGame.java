@@ -15,6 +15,7 @@ public class ScreenGame implements Screen {
     ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame=myGdxGame;
         bird=new Bird(0,0,5,250,200);
+        initTubes();
     }
 
     @Override
@@ -35,7 +36,7 @@ public class ScreenGame implements Screen {
         bird.draw(myGdxGame.batch);
         for (Tube tube:tubes) tube.draw(myGdxGame.batch);
 
-		myGdxGame.batch.end();
+        myGdxGame.batch.end();
     }
 
     @Override
@@ -53,6 +54,9 @@ public class ScreenGame implements Screen {
     @Override
     public void dispose() {
         bird.dispose();
+        for (int i=0;i<tubeCount;i++) {
+            tubes[i].dispose();
+        }
     }
 
     void initTubes() {

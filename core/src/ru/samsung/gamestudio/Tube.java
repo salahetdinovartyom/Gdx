@@ -15,14 +15,14 @@ public class Tube {
         distanceBetweenTubes=(MyGdxGame.SCR_WIDTH+width)/(tubeCount-1);
         x=distanceBetweenTubes*tubeIdx+MyGdxGame.SCR_WIDTH;
         this.speed=speed;
-        
+
         textureUpperTube=new Texture("tubes/tube_flipped.png");
         textureDownTube=new Texture("tubes/tube.png");
 
     }
     void draw(Batch batch) {
         batch.draw(textureUpperTube,x,gapY+gapHeight/2,width,height);
-        batch.draw(textureDownTube,x,gapY+gapHeight/2-height,width,height);
+        batch.draw(textureDownTube,x,gapY+gapHeight/2-height-padding,width,height);
     }
     void dispose() {
         textureDownTube.dispose();
