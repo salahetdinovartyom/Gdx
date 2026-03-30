@@ -9,17 +9,19 @@ public class ScreenGame implements Screen {
     MyGdxGame myGdxGame;
     int tubeCount=3;
     Bird bird;
-
     Tube[] tubes;
+    boolean isGameOver;
 
     ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame=myGdxGame;
-        bird=new Bird(0,0,5,250,200);
+        bird=new Bird(0,360,5,250,200);
         initTubes();
     }
 
     @Override
-    public void show() {}
+    public void show() {
+        isGameOver=false;
+    }
 
     @Override
     public void render(float delta) {
@@ -62,7 +64,7 @@ public class ScreenGame implements Screen {
     void initTubes() {
         tubes = new Tube[tubeCount];
         for (int i=0;i<tubeCount;i++) {
-            tubes[i]=new Tube(tubeCount,i,bird.speed);
+            tubes[i]=new Tube(tubeCount,i);
         }
     }
 }

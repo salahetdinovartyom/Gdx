@@ -2,27 +2,28 @@ package ru.samsung.gamestudio;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-
 import java.util.Random;
-
+import static ru.samsung.gamestudio.MyGdxGame.SCR_HEIGHT;
+import static ru.samsung.gamestudio.MyGdxGame.SCR_WIDTH;
 public class Tube {
     Texture textureUpperTube,textureDownTube;
-    int width=200,height=700,gapHeight=400,gapY,padding=100,distanceBetweenTubes,x,speed;
-    Random random=new Random();
+    int gapHeight=400,speed=10,gapY,padding=100,distanceBetweenTubes,x;
+    final int width=200,height=700;
+    Random random;
 
-    public Tube(int tubeCount,int tubeIdx,int speed) {
-        gapY=gapHeight/2+padding+random.nextInt(MyGdxGame.SCR_HEIGHT-2*(padding+gapHeight/2));
-        distanceBetweenTubes=(MyGdxGame.SCR_WIDTH+width)/(tubeCount-1);
-        x=distanceBetweenTubes*tubeIdx+MyGdxGame.SCR_WIDTH;
-        this.speed=speed;
+    public Tube(int tubeCount,int tubeIdx) {
+        random=new Random();
+        gapY=gapHeight/2+padding+random.nextInt(SCR_HEIGHT-2*(padding+gapHeight/2));
+        distanceBetweenTubes=(SCR_WIDTH+width) / (tubeCount-1);
+        x=distanceBetweenTubes*tubeIdx+SCR_WIDTH;
 
         textureUpperTube=new Texture("tubes/tube_flipped.png");
         textureDownTube=new Texture("tubes/tube.png");
 
     }
     void draw(Batch batch) {
-        batch.draw(textureUpperTube,x,gapY+gapHeight/2,width,height);
-        batch.draw(textureDownTube,x,gapY+gapHeight/2-height-padding,width,height);
+        batch.draw(textureUpperTube,x,gapY+ (float) gapHeight /2,width,height);
+        batch.draw(textureDownTube,x,gapY- (float) gapHeight /2-height-padding,width,height);
     }
     void dispose() {
         textureDownTube.dispose();
@@ -30,9 +31,14 @@ public class Tube {
     }
     void move() {
         x-=speed;
-        if (x<=-width) {
-            x=MyGdxGame.SCR_WIDTH+distanceBetweenTubes;
-            gapY=gapHeight/2+padding+random.nextInt(MyGdxGame.SCR_HEIGHT-2*(padding+gapHeight/2));
+        if (x<-width) {
+            x=SCR_WIDTH+distanceBetweenTubes;
+            gapY=gapHeight/2+padding+random.nextInt(SCR_HEIGHT-2*(padding+gapHeight/2));
         }
+    }
+    public boolean isHit(Bird bird) {
+        if (bird.x+bird.width>=x && bird.x<=x+width && bird.y<=gapY-gapHeight/2) return true;
+        if (bird.y + bird.height >= gapY + gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x) return true;
+        return false;
     }
 }
