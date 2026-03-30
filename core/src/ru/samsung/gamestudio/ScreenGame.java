@@ -29,7 +29,17 @@ public class ScreenGame implements Screen {
             bird.onClick();
         }
         bird.fly();
-        for (Tube tube:tubes) tube.move();
+        if (!bird.isInField()) {
+            System.out.println("not in field");
+            isGameOver=true;
+        }
+        for (Tube tube:tubes) {
+            tube.move();
+            if (tube.isHit(bird)) {
+                System.out.println("hit");
+                isGameOver=true;
+            }
+        }
         ScreenUtils.clear(1, 0, 0, 1);
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);

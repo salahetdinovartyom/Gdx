@@ -39,6 +39,10 @@ public class Bird {
         jump=true;
         jumpHeight=maxHeightOfJump+y;
     }
+    public boolean isInField(){
+        if (y+height<0) return false;
+        return y <= MyGdxGame.SCR_HEIGHT;
+    }
     public void draw(Batch batch) {
         int frameMultiplier=5;
         batch.draw(framesArray[frameCounter/frameMultiplier],x,y,width,height);

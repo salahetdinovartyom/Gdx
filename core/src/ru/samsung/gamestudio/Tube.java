@@ -38,7 +38,6 @@ public class Tube {
     }
     public boolean isHit(Bird bird) {
         if (bird.x+bird.width>=x && bird.x<=x+width && bird.y<=gapY-gapHeight/2) return true;
-        if (bird.y + bird.height >= gapY + gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x) return true;
-        return false;
+        return bird.y + bird.height >= gapY + gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x;
     }
 }
