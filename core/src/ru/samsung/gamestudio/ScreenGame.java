@@ -7,11 +7,10 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 public class ScreenGame implements Screen {
     MyGdxGame myGdxGame;
-    int tubeCount=3;
+    int tubeCount=3,gamePoints;
     Bird bird;
     Tube[] tubes;
     boolean isGameOver;
-
     ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame=myGdxGame;
         bird=new Bird(0,360,5,250,200);
@@ -20,6 +19,7 @@ public class ScreenGame implements Screen {
 
     @Override
     public void show() {
+        gamePoints = 0;
         isGameOver=false;
     }
 
@@ -38,6 +38,9 @@ public class ScreenGame implements Screen {
             if (tube.isHit(bird)) {
                 System.out.println("hit");
                 isGameOver=true;
+            } else if (tube.needAddPoint(bird)) {
+                gamePoints++;
+                System.out.println(gamePoints);
             }
         }
         ScreenUtils.clear(1, 0, 0, 1);
