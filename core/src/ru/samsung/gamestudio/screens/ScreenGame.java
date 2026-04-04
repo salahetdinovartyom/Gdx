@@ -1,8 +1,14 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
+
+import ru.samsung.gamestudio.MyGdxGame;
+import ru.samsung.gamestudio.characters.Bird;
+import ru.samsung.gamestudio.characters.Tube;
+import ru.samsung.gamestudio.components.MovingBackground;
+import ru.samsung.gamestudio.components.PointCounter;
 //import com.badlogic.gdx.graphics.Texture;
 
 public class ScreenGame implements Screen {
@@ -14,22 +20,28 @@ public class ScreenGame implements Screen {
     final int pointCounterMarginTop=60,pointCounterMarginRight=400;
     int tubeCount=3,gamePoints;
     boolean isGameOver;
-    ScreenGame(MyGdxGame myGdxGame) {
+    public ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame=myGdxGame;
         bird=new Bird(0,360,5,250,200);
         initTubes();
         pointCounter=new PointCounter(MyGdxGame.SCR_WIDTH -pointCounterMarginRight,MyGdxGame.SCR_HEIGHT-pointCounterMarginTop);
-        background=new MovingBackground();
+        background=new MovingBackground("backgrounds/game_bg.png");
     }
 
     @Override
     public void show() {
-        gamePoints = 0;
         isGameOver=false;
+        bird.y=MyGdxGame.SCR_HEIGHT/2;
+        initTubes();
+        gamePoints = 0;
     }
 
     @Override
     public void render(float delta) {
+        if (isGameOver) {
+            myGdxGame.screenRestart.gamePoints=gamePoints;
+            myGdxGame.setScreen(myGdxGame.screenRestart);
+        }
         if (Gdx.input.justTouched()) {
             bird.onClick();
         }

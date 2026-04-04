@@ -1,7 +1,9 @@
-package ru.samsung.gamestudio;
+package ru.samsung.gamestudio.characters;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+
+import ru.samsung.gamestudio.MyGdxGame;
 
 public class Bird {
     Texture texture;
@@ -35,7 +37,7 @@ public class Bird {
             y-=speed;
         }
     }
-    void onClick() {
+    public void onClick() {
         jump=true;
         jumpHeight=maxHeightOfJump+y;
     }
