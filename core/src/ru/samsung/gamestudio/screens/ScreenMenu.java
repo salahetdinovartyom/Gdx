@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import ru.samsung.gamestudio.MyGdxGame;
 import ru.samsung.gamestudio.characters.Bird;
+import ru.samsung.gamestudio.characters.Language;
 import ru.samsung.gamestudio.components.MovingBackground;
 import ru.samsung.gamestudio.components.TextButton;
 
@@ -19,7 +20,7 @@ public class ScreenMenu implements Screen {
     public ScreenMenu(MyGdxGame myGdxGame) {
         this.myGdxGame=myGdxGame;
         background=new MovingBackground("backgrounds/restart_bg.png");
-        buttonStart=new TextButton(20,400,"Start");
+        buttonStart=new TextButton(20,400, "Start");
         buttonExit=new TextButton(20,170,"Exit");
         buttonTerms=new TextButton(790,0,"Terms of use");
         bird=new Bird(700,200,1,500,400);
@@ -27,7 +28,6 @@ public class ScreenMenu implements Screen {
 
     @Override
     public void show() {
-
     }
     @Override
     public void render(float delta) {
