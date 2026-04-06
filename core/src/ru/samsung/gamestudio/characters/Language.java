@@ -1,11 +1,4 @@
 package ru.samsung.gamestudio.characters;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-
-import java.util.Locale;
-
 public class Language {
     public static String restart,menu,record,count,start,exit,terms;
 public static void setLanguage (boolean isEng){
