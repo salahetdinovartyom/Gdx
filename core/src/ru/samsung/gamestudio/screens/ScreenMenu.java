@@ -9,6 +9,7 @@ import ru.samsung.gamestudio.MyGdxGame;
 import ru.samsung.gamestudio.characters.Bird;
 import ru.samsung.gamestudio.characters.Language;
 import ru.samsung.gamestudio.components.MovingBackground;
+import ru.samsung.gamestudio.components.Text;
 import ru.samsung.gamestudio.components.TextButton;
 
 public class ScreenMenu implements Screen {
@@ -16,6 +17,7 @@ public class ScreenMenu implements Screen {
     MovingBackground background;
     TextButton buttonStart,buttonExit,buttonTerms;
     Bird bird;
+    Text text=new Text();
 
     public ScreenMenu(MyGdxGame myGdxGame) {
         this.myGdxGame=myGdxGame;
@@ -54,6 +56,8 @@ public class ScreenMenu implements Screen {
         buttonExit.draw(myGdxGame.batch);
         buttonTerms.draw(myGdxGame.batch);
         bird.draw(myGdxGame.batch);
+        text.getFont(myGdxGame.ruLocale).draw(myGdxGame.batch, Language.menu,110f,150f);
+
 
         myGdxGame.batch.end();
     }
@@ -85,5 +89,6 @@ public class ScreenMenu implements Screen {
         buttonExit.dispose();
         buttonTerms.dispose();
         bird.dispose();
+
     }
 }

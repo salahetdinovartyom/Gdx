@@ -29,7 +29,6 @@ public class TextButton {
         texture=new Texture("backgrounds/button_bg.png");
         buttonWidth=texture.getWidth();
         buttonHeight=texture.getHeight();
-
         textX=x+(buttonWidth-textWidth)/2;
         textY=y+(buttonHeight+textHeight)/2;
     }

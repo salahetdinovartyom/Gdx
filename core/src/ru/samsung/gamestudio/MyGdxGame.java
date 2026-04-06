@@ -4,13 +4,13 @@ package ru.samsung.gamestudio;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
+import java.util.Locale;
 import ru.samsung.gamestudio.characters.Language;
+import ru.samsung.gamestudio.components.Text;
 import ru.samsung.gamestudio.screens.ScreenGame;
 import ru.samsung.gamestudio.screens.ScreenMenu;
 import ru.samsung.gamestudio.screens.ScreenRestart;
-//import com.badlogic.gdx.ApplicationAdapter;
-//import com.badlogic.gdx.utils.ScreenUtils;
+
 
 public class MyGdxGame extends Game {
 	public SpriteBatch batch;
@@ -19,6 +19,8 @@ public class MyGdxGame extends Game {
     public ScreenGame screenGame;
     public ScreenRestart screenRestart;
     public ScreenMenu screenMenu;
+    public final Locale ruLocale=new Locale("ru","RU");
+    Text text;
 
     @Override
 	public void create () {
@@ -28,7 +30,11 @@ public class MyGdxGame extends Game {
         screenGame=new ScreenGame(this);
         screenRestart=new ScreenRestart(this);
         screenMenu=new ScreenMenu(this);
+        text = new Text();
+        text.initialize();
+        Language.setLanguage(true);
         setScreen(screenMenu);
+
 		}
 
 	@Override

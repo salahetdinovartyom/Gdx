@@ -23,7 +23,7 @@ public class Tube {
     }
     public void draw(Batch batch) {
         batch.draw(textureUpperTube,x,gapY+ (float) gapHeight /2,width,height);
-        batch.draw(textureDownTube,x,gapY- (float) gapHeight /2-height-padding,width,height);
+        batch.draw(textureDownTube,x,gapY- (float) gapHeight /2-height,width,height);
     }
     public void dispose() {
         textureDownTube.dispose();
