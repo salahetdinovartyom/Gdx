@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import java.util.Locale;
 
 public class Text {
-    public static final String FONT_NAME="calibri.tff";
+    public static final String FONT_NAME="fonts/calibri.tff";
     public static final String RUSSIAN="АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ: ";
     public static final String ENG="ABCDEFGHIJKLMNOPQRSTUVWXYZ: ";
     private BitmapFont ruFont;
