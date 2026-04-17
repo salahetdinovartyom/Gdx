@@ -5,7 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import ru.samsung.gamestudio.characters.Language;
+//import ru.samsung.gamestudio.characters.Language;
 import ru.samsung.gamestudio.screens.ScreenGame;
 import ru.samsung.gamestudio.screens.ScreenMenu;
 import ru.samsung.gamestudio.screens.ScreenRestart;

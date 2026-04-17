@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import ru.samsung.gamestudio.MyGdxGame;
 import ru.samsung.gamestudio.characters.Bird;
-import ru.samsung.gamestudio.characters.Language;
+//import ru.samsung.gamestudio.characters.Language;
 import ru.samsung.gamestudio.components.MovingBackground;
 import ru.samsung.gamestudio.components.TextButton;
 
